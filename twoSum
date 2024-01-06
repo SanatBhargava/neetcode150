@@ -1,0 +1,21 @@
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+        nums_map = dict(enumerate(nums))
+        nums_map = {v:u for (u,v) in nums_map.items()}
+        nums.sort()
+
+        left = 0
+        right = len(nums)-1
+
+        while(left < right):
+            tot = nums[left] + nums[right]
+
+            if tot==target:
+                ind1 = nums_map[nums[left]]
+                ind2 = nums_map[nums[right]]
+                return [ind1,ind2]
+            
+            elif tot<target:
+                left+=1
+
+            elif tot>target:
+                right-=1
